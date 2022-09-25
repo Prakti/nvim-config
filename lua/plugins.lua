@@ -126,7 +126,7 @@ function M.setup()
 						-- vim.opt.foldmethod = 'expr'
 						-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
-						-- This brute-foces syntax highlighting to work
+						-- This brute-forces syntax highlighting to work
 				    vim.cmd([[TSEnable highlight]])
 					end,
 				})
@@ -143,6 +143,32 @@ function M.setup()
 			end,
 		}
 
+    -- Mason for easy installation of LSP's
+		-- TODO: Move this into separate config file
+		use {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+			config = function()
+				require("mason").setup({
+					ui = {
+						icons = {
+							package_installed = "✓",
+							package_pending = "➜",
+							package_uninstalled = "✗"
+						}
+					}
+				})
+				require("mason-lspconfig").setup({
+					ensure_installed = {
+						"elixirls",
+						"erlangls",
+						"html",
+						"sumneko_lua",
+					}
+				})
+			end,
+		}
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
