@@ -20,7 +20,13 @@ opt.signcolumn = "yes" -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
 opt.cursorline = true -- Highlight the current line under the cursor
 opt.timeoutlen = 300 -- Time in millisecs to wait for a mapped sequence to complete
-opt.guifont = "FiraCode Nerd Font:h8"
+
+-- Special Casing for Gui Font handling under Mac OS X
+if jit.os == "OSX" then
+	opt.guifont = "FiraCode Nerd Font Mono:h13"
+else
+	opt.guifont = "FiraCode Nerd Font Mono:h8"
+end
 
 -- Highlight on yank
 vim.cmd [[
