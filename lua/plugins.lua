@@ -57,9 +57,9 @@ function M.setup()
       end,
 
     }
-		
+
 		-- Monokai Colorscheme
-		use { 
+		use {
 			"tanvirtin/monokai.nvim",
 			config = function()
 				require('monokai').setup()
@@ -80,7 +80,7 @@ function M.setup()
 		use {
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",
-			requires = { 
+			requires = {
 				"nvim-lua/plenary.nvim",
 				"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
 				"MunifTanjim/nui.nvim",
@@ -102,11 +102,11 @@ function M.setup()
 				require("lualine").setup({ theme = 'monokai'})
 			end,
 		}
-		
+
 		-- Use Treesitter for better syntax highlighting
 		use {
 			'nvim-treesitter/nvim-treesitter',
-			run = function() 
+			run = function()
 				require('nvim-treesitter.install').update({ with_sync = true})
 			end,
 			config = function ()
@@ -144,29 +144,13 @@ function M.setup()
 		}
 
     -- Mason for easy installation of LSP's
-		-- TODO: Move this into separate config file
+		use {	"williamboman/mason.nvim", }
+	  use {	"williamboman/mason-lspconfig.nvim", after = "mason.nvim" }
 		use {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
 			"neovim/nvim-lspconfig",
+			after = "mason-lspconfig.nvim",
 			config = function()
-				require("mason").setup({
-					ui = {
-						icons = {
-							package_installed = "✓",
-							package_pending = "➜",
-							package_uninstalled = "✗"
-						}
-					}
-				})
-				require("mason-lspconfig").setup({
-					ensure_installed = {
-						"elixirls",
-						"erlangls",
-						"html",
-						"sumneko_lua",
-					}
-				})
+				require("config.lsp").setup()
 			end,
 		}
 

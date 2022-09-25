@@ -96,8 +96,11 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
+    after = { "nvim-lspconfig" },
+    load_after = {},
     loaded = true,
-    path = "/home/myself/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    needs_bufread = false,
+    path = "/home/myself/.local/share/nvim/site/pack/packer/opt/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
@@ -125,14 +128,15 @@ _G.packer_plugins = {
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\n†\2\0\0\5\0\f\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\b\0B\0\2\0029\0\2\0005\2\n\0005\3\t\0=\3\v\2B\0\2\1K\0\1\0\21ensure_installed\1\0\0\1\5\0\0\relixirls\rerlangls\thtml\16sumneko_lua\20mason-lspconfig\aui\1\0\0\nicons\1\0\0\1\0\3\22package_installed\bâœ“\24package_uninstalled\bâœ—\20package_pending\bâžœ\nsetup\nmason\frequire\0" },
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.lsp\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "/home/myself/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig",
-    wants = { "mason.nvim", "mason-lspconfig.nvim" }
+    needs_bufread = false,
+    path = "/home/myself/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23TSEnable highlight\bcmd\bvim•\3\1\0\b\0\18\0\0266\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\0016\0\b\0009\0\t\0009\0\n\0005\2\v\0005\3\14\0006\4\b\0009\4\t\0049\4\f\4'\6\r\0004\a\0\0B\4\3\2=\4\15\0033\4\16\0=\4\17\3B\0\3\1K\0\1\0\rcallback\0\ngroup\1\0\0\23TS_FOLD_WORKAROUND\24nvim_create_augroup\1\6\0\0\rBufEnter\vBufAdd\vBufNew\15BufNewFile\16BufWinEnter\24nvim_create_autocmd\bapi\bvim\15hightlight\1\0\1\venable\2\21ensure_installed\1\0\3&additional_vim_regex_highlighting\1\17auto_install\2\17sync_install\1\1\3\0\0\blua\velixir\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23TSEnable highlight\bcmd\bvim•\3\1\0\b\0\18\0\0266\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\0016\0\b\0009\0\t\0009\0\n\0005\2\v\0005\3\14\0006\4\b\0009\4\t\0049\4\f\4'\6\r\0004\a\0\0B\4\3\2=\4\15\0033\4\16\0=\4\17\3B\0\3\1K\0\1\0\rcallback\0\ngroup\1\0\0\23TS_FOLD_WORKAROUND\24nvim_create_augroup\1\6\0\0\rBufEnter\vBufAdd\vBufNew\15BufNewFile\16BufWinEnter\24nvim_create_autocmd\bapi\bvim\15hightlight\1\0\1\venable\2\21ensure_installed\1\0\3\17sync_install\1&additional_vim_regex_highlighting\1\17auto_install\2\1\3\0\0\blua\velixir\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/myself/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -195,6 +199,10 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\nJ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\ntheme\fmonokai\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20config.whichkey\frequire\0", "config", "which-key.nvim")
@@ -203,30 +211,32 @@ time([[Config for which-key.nvim]], false)
 time([[Config for monokai.nvim]], true)
 try_loadstring("\27LJ\2\na\0\0\3\0\6\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\24colorscheme monokai\bcmd\bvim\nsetup\fmonokai\frequire\0", "config", "monokai.nvim")
 time([[Config for monokai.nvim]], false)
--- Config for: neo-tree.nvim
-time([[Config for neo-tree.nvim]], true)
-try_loadstring("\27LJ\2\nz\0\0\3\0\6\0\n6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\nsetup\rneo-tree\frequire0 let g:neo_tree_remove_legacy_commands = 1 \bcmd\bvim\0", "config", "neo-tree.nvim")
-time([[Config for neo-tree.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n†\2\0\0\5\0\f\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\b\0B\0\2\0029\0\2\0005\2\n\0005\3\t\0=\3\v\2B\0\2\1K\0\1\0\21ensure_installed\1\0\0\1\5\0\0\relixirls\rerlangls\thtml\16sumneko_lua\20mason-lspconfig\aui\1\0\0\nicons\1\0\0\1\0\3\22package_installed\bâœ“\24package_uninstalled\bâœ—\20package_pending\bâžœ\nsetup\nmason\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
 -- Config for: kanagawa.nvim
 time([[Config for kanagawa.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rkanagawa\frequire\0", "config", "kanagawa.nvim")
 time([[Config for kanagawa.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\nJ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\ntheme\fmonokai\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
+-- Config for: neo-tree.nvim
+time([[Config for neo-tree.nvim]], true)
+try_loadstring("\27LJ\2\nz\0\0\3\0\6\0\n6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\3\0'\2\4\0B\0\2\0029\0\5\0B\0\1\1K\0\1\0\nsetup\rneo-tree\frequire0 let g:neo_tree_remove_legacy_commands = 1 \bcmd\bvim\0", "config", "neo-tree.nvim")
+time([[Config for neo-tree.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23TSEnable highlight\bcmd\bvim•\3\1\0\b\0\18\0\0266\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\0016\0\b\0009\0\t\0009\0\n\0005\2\v\0005\3\14\0006\4\b\0009\4\t\0049\4\f\4'\6\r\0004\a\0\0B\4\3\2=\4\15\0033\4\16\0=\4\17\3B\0\3\1K\0\1\0\rcallback\0\ngroup\1\0\0\23TS_FOLD_WORKAROUND\24nvim_create_augroup\1\6\0\0\rBufEnter\vBufAdd\vBufNew\15BufNewFile\16BufWinEnter\24nvim_create_autocmd\bapi\bvim\15hightlight\1\0\1\venable\2\21ensure_installed\1\0\3&additional_vim_regex_highlighting\1\17auto_install\2\17sync_install\1\1\3\0\0\blua\velixir\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23TSEnable highlight\bcmd\bvim•\3\1\0\b\0\18\0\0266\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\0016\0\b\0009\0\t\0009\0\n\0005\2\v\0005\3\14\0006\4\b\0009\4\t\0049\4\f\4'\6\r\0004\a\0\0B\4\3\2=\4\15\0033\4\16\0=\4\17\3B\0\3\1K\0\1\0\rcallback\0\ngroup\1\0\0\23TS_FOLD_WORKAROUND\24nvim_create_augroup\1\6\0\0\rBufEnter\vBufAdd\vBufNew\15BufNewFile\16BufWinEnter\24nvim_create_autocmd\bapi\bvim\15hightlight\1\0\1\venable\2\21ensure_installed\1\0\3\17sync_install\1&additional_vim_regex_highlighting\1\17auto_install\2\1\3\0\0\blua\velixir\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd mason.nvim ]]
+vim.cmd [[ packadd mason-lspconfig.nvim ]]
+vim.cmd [[ packadd nvim-lspconfig ]]
+
+-- Config for: nvim-lspconfig
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.lsp\frequire\0", "config", "nvim-lspconfig")
+
+time([[Sequenced loading]], false)
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> gc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gbc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gbc", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gcc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gcc", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
