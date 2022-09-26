@@ -35,3 +35,12 @@ vim.cmd [[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]]
+
+-- Initialize LuaSnip
+require("config.luasnip").setup()
+
+-- Initialize CMP
+require("config.cmp").setup()
+
+-- Initialize LSP
+require("config.lsp").setup()

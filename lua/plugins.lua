@@ -55,7 +55,6 @@ function M.setup()
       config = function()
 				require('kanagawa').setup()
       end,
-
     }
 
 		-- Monokai Colorscheme
@@ -143,34 +142,38 @@ function M.setup()
 			end,
 		}
 
+		-- Autocompletion with CMP
 		use {
 			"hrsh7th/nvim-cmp",
-			after = { "nvim-treesitter" },
-			config = function()
-				require("config.cmp").setup()
-			end,
-			requires = {
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-nvim-lua",
-				"ray-x/cmp-treesitter",
-				"hrsh7th/cmp-emoji",
-				"hrsh7th/cmp-nvim-lsp",
-				disable = false,
-			}
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lua",
+			"ray-x/cmp-treesitter",
+			"hrsh7th/cmp-emoji",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-cmdline",
+	    "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-calc",
+      "f3fora/cmp-spell",
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
 		}
 
     -- Mason for easy installation of LSP's
-		use {	"williamboman/mason.nvim", after = "nvim-cmp" }
-	  use {	"williamboman/mason-lspconfig.nvim", after = "mason.nvim" }
 		use {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
 			"neovim/nvim-lspconfig",
-			after = "mason-lspconfig.nvim",
-			config = function()
-				require("config.lsp").setup()
-			end,
 		}
 
+		-- Show linter warnings from LSP
+		use {
+			"folke/trouble.nvim",
+			requires = "kyazdani42/nvim-web-devicons",
+			config = function()
+				require("trouble").setup({ })
+			end
+		}
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
