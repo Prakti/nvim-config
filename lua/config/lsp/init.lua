@@ -46,6 +46,9 @@ function M.setup()
 		ensure_installed = servers
 	})
 
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 	mason_lspconfig.setup_handlers({
 		function (server_name)
 			local lspconfig = require("lspconfig")
@@ -53,11 +56,13 @@ function M.setup()
 			if server_name == "sumneko_lua" then
 				lspconfig[server_name].setup({
 					on_attach = on_attach,
-					settings = lua_settings
+					settings = lua_settings,
+					capabilities = capabilities
 				})
 			else
 				lspconfig[server_name].setup({
-					on_attach = on_attach
+					on_attach = on_attach,
+					capabilities = capabilities
 				})
 			end
 		end

@@ -143,8 +143,25 @@ function M.setup()
 			end,
 		}
 
+		use {
+			"hrsh7th/nvim-cmp",
+			after = { "nvim-treesitter" },
+			config = function()
+				require("config.cmp").setup()
+			end,
+			requires = {
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-nvim-lua",
+				"ray-x/cmp-treesitter",
+				"hrsh7th/cmp-emoji",
+				"hrsh7th/cmp-nvim-lsp",
+				disable = false,
+			}
+		}
+
     -- Mason for easy installation of LSP's
-		use {	"williamboman/mason.nvim", }
+		use {	"williamboman/mason.nvim", after = "nvim-cmp" }
 	  use {	"williamboman/mason-lspconfig.nvim", after = "mason.nvim" }
 		use {
 			"neovim/nvim-lspconfig",
@@ -153,6 +170,7 @@ function M.setup()
 				require("config.lsp").setup()
 			end,
 		}
+
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
