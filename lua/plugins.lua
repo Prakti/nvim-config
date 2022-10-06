@@ -175,6 +175,12 @@ function M.setup()
 			end
 		}
 
+		-- Telescope for better Finding of Stuff
+		use {
+			'nvim-telescope/telescope.nvim', tag = '0.1.0',
+			requires = { "nvim-lua/plenary.nvim" }
+		}
+
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require("packer").sync()

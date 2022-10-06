@@ -25,9 +25,10 @@ function M.setup()
 
     b = {
       name = "Buffer",
-      c = { "<Cmd>bd!<Cr>", "Close current buffer" },
-      D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all buffers" },
-			e = { "<CMD>Neotree source=buffers position=current<CR>", "Explore all buffers" }
+      c = { "<cmd>bd!<Cr>", "Close current buffer" },
+      D = { "<cmd>%bd|e#|bd#<Cr>", "Delete all buffers" },
+			e = { "<ccc>Neotree source=buffers position=current<CR>", "Explore all buffers" },
+			b = { "<cmd>Telescope buffers<CR>", "Find buffer with Telescope" }
     },
 
     z = {
@@ -46,7 +47,14 @@ function M.setup()
 
 		f = {
 			name = "Files",
-			e = { "<cmd>Neotree position=current<CR>", "Explore file tree"},
+			e = { "<cmd>Neotree position=current<CR>", "Explore file tree" },
+			f = { "<cmd>Telescope find_files<CR>", "Find Files with Telescope" },
+			g = { "<cmd>Telescope live_grep<CR>", "Grep Files with Telescope" },
+		},
+
+		h = {
+			name = "Help",
+			t = { "<cmd>Telescope help_tags<CR>", "Telescope Help Tags" }
 		}
   }
 
