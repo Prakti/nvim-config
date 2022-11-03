@@ -5,6 +5,8 @@ local servers = {
 	"erlangls",
 	"html",
 	"sumneko_lua",
+	"jsonls",
+	"pyright"
 }
 
 local lua_settings = {
