@@ -14,7 +14,7 @@ function M.setup()
     experimental = { native_menu = false, ghost_text = false },
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     formatting = {
@@ -23,6 +23,7 @@ function M.setup()
           buffer = "[Buffer]",
           luasnip = "[Snip]",
           nvim_lua = "[Lua]",
+					nvim_lsp = "[LSP]",
           treesitter = "[Treesitter]",
         })[entry.source.name]
         return vim_item
@@ -72,6 +73,7 @@ function M.setup()
       { name = "buffer" },
       { name = "luasnip" },
       { name = "nvim_lua" },
+			{ name = "nvim_lsp" },
       { name = "path" },
       { name = "spell" },
       { name = "emoji" },

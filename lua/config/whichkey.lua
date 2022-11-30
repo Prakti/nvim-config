@@ -22,6 +22,7 @@ function M.setup()
   local mappings = {
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
+		["r"] = { "<cmd>e<CR>", "Reload file"},
 
     b = {
       name = "Buffer",

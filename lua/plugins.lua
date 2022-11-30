@@ -54,18 +54,30 @@ function M.setup()
       "rebelot/kanagawa.nvim",
       config = function()
 				require('kanagawa').setup()
+
+        vim.cmd [[colorscheme kanagawa]]
       end,
     }
+
+    -- Gruvbox Colorscheme
+	  use { "ellisonleao/gruvbox.nvim" }
+
+		-- Onebuddy Colorscheme
+		use {'Th3Whit3Wolf/onebuddy',
+      requires = { "tjdevries/colorbuddy.vim" }
+	  }
+
 
 		-- Monokai Colorscheme
 		use {
 			"tanvirtin/monokai.nvim",
 			config = function()
 				require('monokai').setup()
-
-        vim.cmd [[colorscheme monokai]]
 			end,
 		}
+
+		-- Sonokai Colorscheme
+		use { "sainnhe/sonokai" }
 
 		-- WichKey key suggester
 		use {
@@ -110,7 +122,7 @@ function M.setup()
 			end,
 			config = function ()
 				require('nvim-treesitter.configs').setup({
-					ensure_installed = { "lua", "elixir"},
+					ensure_installed = { "lua", "elixir", "eex", "heex" },
 					sync_install = false,
 					hightlight = { enable = true },
 					auto_install = true,

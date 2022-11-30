@@ -6,6 +6,7 @@ local opt = vim.opt
 api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
+g.neovide_refresh_rate = 60
 
 opt.termguicolors = true -- Enable colors in terminal
 opt.hlsearch = true --Set highlight on search
