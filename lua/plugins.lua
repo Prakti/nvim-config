@@ -62,11 +62,9 @@ function M.setup()
     -- Gruvbox Colorscheme
 	  use { "ellisonleao/gruvbox.nvim" }
 
-		-- Onebuddy Colorscheme
 		use {'Th3Whit3Wolf/onebuddy',
       requires = { "tjdevries/colorbuddy.vim" }
 	  }
-
 
 		-- Monokai Colorscheme
 		use {
@@ -75,9 +73,6 @@ function M.setup()
 				require('monokai').setup()
 			end,
 		}
-
-		-- Sonokai Colorscheme
-		use { "sainnhe/sonokai" }
 
 		-- WichKey key suggester
 		use {
@@ -110,7 +105,7 @@ function M.setup()
 			requires = { 'kyazdani42/nvim-web-devicons' },
 			config = function ()
 				-- require("lualine").setup({ theme = 'monokai'})
-				require("lualine").setup({ theme = 'monokai'})
+				require("lualine").setup({ theme = 'kanagawa'})
 			end,
 		}
 
@@ -130,24 +125,23 @@ function M.setup()
 				})
 
 				-- Apply a workaround to make folding and syntax highlighting behave correctly
-				vim.api.nvim_create_autocmd({'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter'}, {
-					group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
-					callback = function ()
-						-- Uncomment this to make folding work nicely
-						-- vim.opt.foldmethod = 'expr'
-						-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
-						-- This brute-forces syntax highlighting to work
-				    vim.cmd([[TSEnable highlight]])
-					end,
-				})
+				-- vim.api.nvim_create_autocmd({'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter'}, {
+				-- 	-- group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+				-- 	callback = function ()
+				-- 		-- Uncomment this to make folding work nicely
+				-- 		-- vim.opt.foldmethod = 'expr'
+				-- 		-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+				--
+				-- 		-- This brute-forces syntax highlighting to work
+				--     -- vim.cmd([[TSEnable highlight]])
+				-- 	end,
+				-- })
 			end,
 		}
 
 		-- Better Commenting functions
 		use {
 			"numToStr/Comment.nvim",
-			opt = true,
 			keys = { "gc", "gcc", "gbc" },
 			config = function()
 				require("Comment").setup {}
