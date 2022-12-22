@@ -53,9 +53,22 @@ function M.setup()
 			g = { "<cmd>Telescope live_grep<CR>", "Grep Files with Telescope" },
 		},
 
+		t = {
+			name = "Testing",
+			n = { function() require("neotest").run.run() end, "Run nearest test" },
+			f = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Run whole test file" },
+		},
+
 		h = {
 			name = "Help",
 			t = { "<cmd>Telescope help_tags<CR>", "Telescope Help Tags" }
+		},
+
+		T = {
+			name = "TODO's",
+			l = { "<cmd>TodoLocList<CR>", "Show TODO's in Location List" },
+			q = { "<cmd>TodoQuickFix<CR>", "Show TODO's in Quickfix List" },
+			t = { "<cmd>TodoTelescope<CR>", "Show TODO's in Telescope" },
 		}
   }
 

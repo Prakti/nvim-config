@@ -125,24 +125,18 @@ function M.setup()
 				})
 
 				-- Apply a workaround to make folding and syntax highlighting behave correctly
-				-- vim.api.nvim_create_autocmd({'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter'}, {
-				-- 	-- group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
-				-- 	callback = function ()
-				-- 		-- Uncomment this to make folding work nicely
-				-- 		-- vim.opt.foldmethod = 'expr'
-				-- 		-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-				--
-				-- 		-- This brute-forces syntax highlighting to work
-				--     -- vim.cmd([[TSEnable highlight]])
-				-- 	end,
-				-- })
+				vim.api.nvim_create_autocmd({'BufEnter', 'BufAdd', 'BufNew', 'BufNewFile', 'BufWinEnter'}, {
+					callback = function ()
+						-- This brute-forces syntax highlighting to work
+				    vim.cmd([[TSEnable highlight]])
+					end,
+				})
 			end,
 		}
 
 		-- Better Commenting functions
 		use {
 			"numToStr/Comment.nvim",
-			keys = { "gc", "gcc", "gbc" },
 			config = function()
 				require("Comment").setup {}
 			end,
@@ -185,6 +179,30 @@ function M.setup()
 		use {
 			'nvim-telescope/telescope.nvim', tag = '0.1.0',
 			requires = { "nvim-lua/plenary.nvim" }
+		}
+
+		-- Testing support
+		use {
+			'nvim-neotest/neotest',
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
+				"antoinemadec/FixCursorHold.nvim",
+				"jfpedroza/neotest-elixir",
+			}
+		}
+
+		-- Todo Management
+		use {
+			"folke/todo-comments.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("todo-comments").setup {
+					-- your configuration comes here
+					-- or leave it empty to use the default settings
+					-- refer to the configuration section below
+				}
+			end
 		}
 
     if packer_bootstrap then
