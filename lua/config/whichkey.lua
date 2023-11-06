@@ -53,15 +53,22 @@ function M.setup()
 			g = { "<cmd>Telescope live_grep<CR>", "Grep Files with Telescope" },
 		},
 
+		F = {
+			name = "Formatting Helpers",
+			f = { function () require('whitespace-nvim').trim() end, "Remove trailing whitespace" }
+	 	},
+
 		t = {
 			name = "Testing",
 			n = { function() require("neotest").run.run() end, "Run nearest test" },
 			f = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Run whole test file" },
+			p = { function() require("neotest").output_panel.toggle() end, "Toggle output panel" },
 		},
 
 		h = {
 			name = "Help",
-			t = { "<cmd>Telescope help_tags<CR>", "Telescope Help Tags" }
+			t = { "<cmd>Telescope help_tags<CR>", "Telescope Help Tags" },
+			s = { "<cmd>SymbolsOutline<CR>", "Toggle SymbolsOutline" }
 		},
 
 		T = {

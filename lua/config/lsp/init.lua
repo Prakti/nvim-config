@@ -4,7 +4,6 @@ local servers = {
 	"elixirls",
 	"erlangls",
 	"html",
-	"sumneko_lua",
 	"jsonls",
 	"pyright"
 }

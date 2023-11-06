@@ -38,6 +38,9 @@ vim.cmd [[
   augroup end
 ]]
 
+-- Set the desired color scheme
+vim.cmd [[colorscheme kanagawa]]
+
 -- Initialize LuaSnip
 require("config.luasnip").setup()
 

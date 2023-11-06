@@ -1,5 +1,6 @@
 local M = {}
 
+
 function M.setup()
   -- Indicate first time installation
   local packer_bootstrap = false
@@ -53,9 +54,15 @@ function M.setup()
     use {
       "rebelot/kanagawa.nvim",
       config = function()
-				require('kanagawa').setup()
+				local overrides = function (colors)
+					return {
+			  	  ["@symbol"] = { fg = colors.lightBlue },
+					}
+				end
 
-        vim.cmd [[colorscheme kanagawa]]
+				require('kanagawa').setup({
+					overrides = overrides,
+				})
       end,
     }
 
@@ -72,6 +79,16 @@ function M.setup()
 			config = function()
 				require('monokai').setup()
 			end,
+		}
+
+    use {
+			'navarasu/onedark.nvim',
+			config = function()
+				require('onedark').setup({
+					style = 'deep'
+				})
+			end
+
 		}
 
 		-- WichKey key suggester
@@ -175,6 +192,13 @@ function M.setup()
 			end
 		}
 
+    use {
+			'simrat39/symbols-outline.nvim',
+       config = function ()
+				 require("symbols-outline").setup()
+			 end
+		}
+
 		-- Telescope for better Finding of Stuff
 		use {
 			'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -202,6 +226,27 @@ function M.setup()
 					-- or leave it empty to use the default settings
 					-- refer to the configuration section below
 				}
+			end
+		}
+
+		-- Whitespace Handling
+		use {
+			'johnfrankmorgan/whitespace.nvim',
+			config = function ()
+				require('whitespace-nvim').setup({
+					-- configuration options and their defaults
+
+					-- `highlight` configures which highlight is used to display
+					-- trailing whitespace
+					highlight = 'DiffDelete',
+
+					-- `ignored_filetypes` configures which filetypes to ignore when
+					-- displaying trailing whitespace
+					ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help' },
+
+					-- `ignore_terminal` configures whether to ignore terminal buffers
+					ignore_terminal = true,
+				})
 			end
 		}
 
