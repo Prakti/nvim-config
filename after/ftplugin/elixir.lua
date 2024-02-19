@@ -1,7 +1,7 @@
 vim.bo.shiftwidth = 2
 vim.bo.tabstop = 2
 vim.bo.softtabstop = 2
-vim.bo.textwidth = 78 
+vim.bo.textwidth = 78
 
 require("neotest").setup({
   adapters = {

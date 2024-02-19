@@ -5,7 +5,9 @@ local servers = {
 	"erlangls",
 	"html",
 	"jsonls",
-	"pyright"
+	"pyright",
+	"ltex",
+	"tailwindcss"
 }
 
 local lua_settings = {

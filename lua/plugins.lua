@@ -41,10 +41,10 @@ function M.setup()
 		-- Plenary (Util lib for other Plugins)
 		use { "nvim-lua/plenary.nvim", module = "plenary" }
 
-		-- UI Lib 
+		-- UI Lib
 		use { "MunifTanjim/nui.nvim", module = "nui" }
 
-		-- Better Icons 
+		-- Better Icons
 		use {
 			"kyazdani42/nvim-web-devicons",
 			module = "nvim-web-devicons",
@@ -201,7 +201,7 @@ function M.setup()
 
 		-- Telescope for better Finding of Stuff
 		use {
-			'nvim-telescope/telescope.nvim', tag = '0.1.0',
+			'nvim-telescope/telescope.nvim',
 			requires = { "nvim-lua/plenary.nvim" }
 		}
 
