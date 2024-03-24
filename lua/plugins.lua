@@ -205,6 +205,9 @@ function M.setup()
 			requires = { "nvim-lua/plenary.nvim" }
 		}
 
+		-- Nvim-nio for async-io execution of e.g. tests
+		use { "nvim-neotest/nvim-nio" }
+
 		-- Testing support
 		use {
 			'nvim-neotest/neotest',
@@ -213,6 +216,7 @@ function M.setup()
 				"nvim-treesitter/nvim-treesitter",
 				"antoinemadec/FixCursorHold.nvim",
 				"jfpedroza/neotest-elixir",
+        "nvim-neotest/nvim-nio",
 			}
 		}
 
@@ -242,13 +246,22 @@ function M.setup()
 
 					-- `ignored_filetypes` configures which filetypes to ignore when
 					-- displaying trailing whitespace
-					ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help' },
+					ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help', 'neo-tree' },
 
 					-- `ignore_terminal` configures whether to ignore terminal buffers
 					ignore_terminal = true,
 				})
 			end
 		}
+
+		-- Git Support (Commit from neovim itself)
+		use({
+			"kdheepak/lazygit.nvim",
+			-- optional for floating window border decoration
+			requires = {
+				"nvim-lua/plenary.nvim",
+			}
+		})
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
